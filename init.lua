@@ -14,8 +14,6 @@ vim.g.have_nerd_font = false
 
 -- (migrated from my .vimrc)
 -- set autoindent sw=2 ts=2 expandtab
--- map gf :tabe <cfile><CR>
-
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 
@@ -84,6 +82,9 @@ vim.opt.scrolloff = 10
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- map gf :tabe <cfile><CR>
+vim.keymap.set('n', 'gf', '<cmd>tabe <cfile><CR>')
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -150,14 +151,6 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-  {
-    'anurag3301/nvim-platformio.lua',
-    dependencies = {
-      { 'akinsho/nvim-toggleterm.lua' },
-      { 'nvim-telescope/telescope.nvim' },
-      { 'nvim-lua/plenary.nvim' },
-    },
-  },
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
